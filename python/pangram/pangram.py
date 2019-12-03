@@ -8,7 +8,4 @@ def is_pangram(sentence):
             letter_short.append(l)
         i = i+1
 
-    if len(letter_short) == 26:
-        return True
-    else:
-        return False
+    return len(letter_short) == 26
