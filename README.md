@@ -1,2 +1,2 @@
 # Exercism
- Python code
+ Practicing coding
