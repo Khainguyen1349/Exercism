@@ -1,6 +1,5 @@
 def is_pangram(sentence):
     letter_count = [l.lower() for l in sentence if l.isalpha()]
-    # letter_count.sort()
     letter_short = []
     i = 0
     for l in letter_count:
