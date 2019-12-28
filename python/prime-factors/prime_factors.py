@@ -1,10 +1,14 @@
 def factors(value):
-    # if value == 2:
-    #    return [2]
     value_temp = value
     f = []
-    for i in range(2, int(value)):
-        while (value_temp % i) == 0:
-            value_temp = int(value_temp/i)
-            f.append(i)
+    n = 1
+    stop = False
+    while value_temp > n-1:
+        if not stop:
+            n += 1
+        stop = False
+        if value_temp % n == 0:
+            value_temp = int(value_temp/n)
+            f.append(n)
+            stop = True
     return f
