@@ -1,14 +1,12 @@
 def factors(value):
-    value_temp = value
-    f = []
-    n = 1
-    stop = False
-    while value_temp > n-1:
-        if not stop:
-            n += 1
-        stop = False
-        if value_temp % n == 0:
-            value_temp = int(value_temp/n)
-            f.append(n)
-            stop = True
-    return f
+    if value == 1:
+        return []
+    isPrime = True
+    for i in range(2, int(value**0.5)+1):
+        if value % i == 0:
+            f = i
+            isPrime = False
+            break
+    if isPrime:
+        return [value]
+    return [f] + factors(int(value/f))
