@@ -2,11 +2,12 @@ import time
 
 start = time.time()
 
-def Function(inputs):
+class Solution:
+    def Function(inputs):
     
-
-h = Function(inputs)
-print(h)
+inputs = []
+h = Solution()
+print(h.Function(inputs))
 
 end = time.time()
 print(end - start)
