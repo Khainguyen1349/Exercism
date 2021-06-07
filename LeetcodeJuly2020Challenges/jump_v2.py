@@ -5,17 +5,13 @@ start = time.time()
 
 class Solution:
     def Function(self, nums):
-        if len(nums) == 1:
-            return 0
         i = len(nums)-1
         L = [i]
         while i > 0:
             i = i-1
-            if i+nums[i] > L[0]:
-                if i+nums[i] > L[-1]:
-                    
-                k = np.searchsorted(L, i*nums[i])
-                L = [i] + L[k:]
+            if i+nums[i] >= L[0]:
+                L = [i] + L[np.searchsorted(L,i+nums[i],side='right')-1:]
+        return len(L)-1
             
         
 #inputs = [2,3,1,1,4]
