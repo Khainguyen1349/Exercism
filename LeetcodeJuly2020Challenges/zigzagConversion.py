@@ -4,27 +4,35 @@ start = time.time()
 
 class Solution:
     def convert(self, s, numRows):
-        L = []
-        for i in range(numRows):
-            if i == 0:
-                L.append("".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2)]))
-            if i == (numRows-1):
-                L.append("".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - (2*numRows -(numRows + 1))]))
-            else:
-                L.append("".join([s[i] for i in range(len(s)) if not ((i%(2*numRows - 2) - i) and (i%(2*numRows - 2) - (2*numRows - 2 - i)))]))
-        return "".join(L)
-        #return "".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - 0]) \
-               #+ "".join([s[i] for i in range(len(s)) if not ((i%(2*numRows - 2) - 1) and (i%(2*numRows - 2) - (2*numRows - 3)))]) \
-               #+ "".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - (2*numRows -(numRows + 1))])
-        #return sout
-        #for i in range(numRows):
-            #s.join()
+        if (len(s) <= numRows) or (numRows <= 1):
+            return s
+        else:
+            L = []
+            for j in range(numRows):
+##                print(j)
+                
+                if j == 0:
+                    L.extend([s[i] for i in range(len(s)) if not i%(2*numRows - 2)])
+                elif j == (numRows-1):
+                    L.extend([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - (2*numRows -(numRows + 1))])
+                else:
+                    L.extend([s[i] for i in range(len(s)) if not ((i%(2*numRows - 2) - j) and (i%(2*numRows - 2) - (2*numRows - 2 - j)))])
+##                print(L)
+            return "".join(L) #"  ".join(L)
+##        return "".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - 0]) \
+##               + "".join([s[i] for i in range(len(s)) if not ((i%(2*numRows - 2) - 1) and (i%(2*numRows - 2) - (2*numRows - 3)))]) \
+##               + "".join([s[i] for i in range(len(s)) if not i%(2*numRows - 2) - (2*numRows -(numRows + 1))])
         
     
 inputs = "PAYPALISHIRING"
 input2 = 'abcdefghijklmnopqrstuvwxyz'
+input3 = "twttvdpljlfvnpuwdxsabnheyrwdpqdimyejbtvnhciwucuzbnzfcgldyjgpzlzojdzlzwyizievmbuoquvsagxapdprqrhaugntdnbevibhjvxzpstsarsswkjpdsrxyetdrwjogkxpgxqxrmpsfkmdwxszpjynnrtgoewupwmxteukqmevwqbsnttcdrssjnbzrzvivjfoqcbgofemwfglazodsiydvbemacvylcobepkuxqivxogxpwdieblzeqogsjeflvjskvojlxginnfdlknqlarrqfykoesczbwmwmvjjcrzryecjruwrmqkrowisomurignwdyihrhasldbczzvlpfffcpasbuklczhfypppwphjuknumjhbqmhsbjncdxphwxmwodoltvwnikjutrxjfgehprluqdbmaqlotzbowyeeknadgyomeuvwniqdlsslidcbcfsafwfpjhuqfjemfzithawtsqgatkexqwyxufndohvwsbiyastksrdnilpdytdqrdnnkarykoueqeeswxcrphezvtctphjikywuzptlfprxuwqstujkeplzjquaxfiidgeevzrdpjajfsbapnltcyuloqnmvywaeafccyfrhhamcdprqamtaigpywdvuzxabecddjwktwzvcomuqanqiwhiskdojconhtskcpwxnvsplgkbgzuoxbwpmbfxeumnnfzruvphthxeojiwiclgfjxtndrtzdgmiffccumvejcuukqeodktnkpcpgvoldawkfamcmigxmcrwswmwihluwnjeixslzoxhojjdtrcftudnsrjczwxxjgctgugfkdmanxdgqiolc"
+#525
+
 h = Solution()
-print(h.convert(input2,3))
+print(h.convert(input3,525))
+
+ass = "twttvdpljlfvnpuwdxsabnheyrwdpqdimyejbtvnhciwucuzbnzfcgldyjgpzlzojdzlzwyizievmbuoquvsagxapdprqrhaugntdnbevibhjvxzpstsarsswkjpdsrxyetdrwjogkxpgxqxrmpsfkmdwxszpjynnrtgoewupwmxteukqmevwqbsnttcdrssjnbczlrozivqigvdjxfnoaqmcdbkgfogfuegmtwcfggjlxaxzwozdcsjirysdnvdbuetmfaccrvtydljcjoobhexpokzulxsqxiivexjongwxuplwhdiiwembwlszwerqcomgxsgjiemfclmvajfskkwvaodjlloxvggipncnpfkdnltkkndqoleaqrkruqufcyjkeovemsucczcbfwfmiwmmgvdjzjtcrrdznrtyxejcfjgrlucwirwmiqjkoreoxwhitshopmvuurrizgfnnwndmyuiehxrfhbamsplwdbbxcozuzzvglbpkfgflfpcspvansxbwupkclkcszthhfnyopcpjpowdpkhsjiuhkwniuqmnjahqbuqmmohcsvbzjwntckdwxjpdhdwcxembwaoxdzoulvtdvwwynpigkijauttmraxqjrfpgdechmparhlhurqfdybcmcafqaleoatwzybvomwnyqeoelkunyacdtglynopmaebusvfwjnaijqpddlrszsvleiedgcdbiciffsxaafuwqfjpzjlhpueqkfjjuetmsfqzwiutxhrapwftlstqpgzautwkyekxiqjwhypxtucftnvdzoehhvpwrscbxiwysaesetqkesurodknyirlapkdnyntddrq"
 
 end = time.time()
 print(end - start)
