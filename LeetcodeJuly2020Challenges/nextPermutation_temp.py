@@ -1,4 +1,4 @@
-inputs = [1,2,3,2,1]
+inputs = [1,3,2]
 if len(inputs) < 2:
     print(inputs)
 else:
@@ -9,7 +9,7 @@ else:
     while i > -1:
         if inputs[i] < inputs[-1]:
             print("found position to change!")
-            while inputs[i] > inputs[j]:
+            while inputs[i] < inputs[j]:
                 j = j - 1
                 print("j = ",j)
             inputs[i], inputs[j+1] = inputs[j+1], inputs[i]
