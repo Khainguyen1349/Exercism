@@ -4,15 +4,18 @@ start = time.time()
 
 class Solution:
     def permuteUnique(self,nums):
-        n = 1
-        for i in range(len(nums)):
-            n = n*(i+1)
-        nums_temp = nums.copy()
-        L = []
-        for i in range(n):
-            nums_temp[i%(len(nums)-1)],nums_temp[i%(len(nums)-1)+1] = nums_temp[i%(len(nums)-1)+1],nums_temp[i%(len(nums)-1)]
-            L.append(nums_temp.copy())
-        print(L)
+        L = [[nums[0]]]
+        for i in range(len(nums)-1):
+            L_temp = []
+            for j in range(len(L)):
+                for k in range(i+2):
+                    L1_temp = L[j].copy()
+                    L1_temp.insert(k,nums[i+1])
+##                    print(L1_temp)
+                    L_temp.append(L1_temp)
+##                    print(L_temp)
+            L = L_temp
+            print(L)
         return [list(i) for i in {tuple(j) for j in L}]
     
 input1 = [1,2,3,4,5]
