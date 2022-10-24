@@ -7,9 +7,9 @@ class Solution:
         L = [[nums[0]]]
         for i in range(len(nums)-1):
             L_temp = []
-            for j in range(len(L)):
+            for j in L:
                 for k in range(i+2):
-                    L_temp.append(L[j][:k] + [nums[i+1]] + L[j][k:])
+                    L_temp.append(j[:k] + [nums[i+1]] + j[k:])
             L = L_temp
         return [list(i) for i in {tuple(j) for j in L}]
     
